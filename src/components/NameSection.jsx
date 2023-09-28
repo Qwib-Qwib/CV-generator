@@ -2,9 +2,7 @@ import '../styles/NameSection.css'
 
 function NameSection() {
   return (
-    <div className="name-section">
-
-    </div>
+    <h1 className="name-section">John Doe</h1>
   )
 }
 
