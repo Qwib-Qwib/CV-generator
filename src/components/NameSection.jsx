@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import '../styles/NameSection.css'
+import Button from './Button';
+import Input from './Input';
 
 function NameSection({focusedElement, handleEditClick, handleUpdateClick}) {
   const [name, setName] = useState('John Doe')
@@ -9,19 +11,21 @@ function NameSection({focusedElement, handleEditClick, handleUpdateClick}) {
     return (
       <h1 className="neutral name-section">
         {name}
-        <button className='button edit' onClick={handleEditClick}>Edit</button>
+        <Button buttonType={'edit'} handleClick={handleEditClick} />
       </h1>
     )
   } else if (focusedElement === 1) {
     return (
       <div className='currently-edited name-section'>
-        <input className='name-input' type="text" value={name} onChange={(e) => setName(e.target.value)} />
-        <button className='button update' onClick={handleUpdateClick}>Update</button>
+        <Input category={'name'} value={name} handleChange={(e) => setName(e.target.value)} />
+        <div className='button-wrapper'>
+          <Button buttonType={'update'} handleClick={handleUpdateClick} />
+        </div>
       </div>
     )
   } else {
     return (
-      <h1>AAAAAAAAAAHHHHHHHHH</h1>
+      <h1 className="deactivated name-section">{name}</h1>
     )
   }
 }

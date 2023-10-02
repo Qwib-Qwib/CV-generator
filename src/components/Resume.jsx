@@ -16,7 +16,7 @@ function Resume() {
   return (
     <div className="resume">
       <ContactBar />
-      <SummaryBar />
+      <SummaryBar focusedElement={focusedElement} handleProfessionEditClick={(e) => setFocusedElement(2)} handleSummaryEditClick={(e) => setFocusedElement(3)} handleUpdateClick={(e) => setFocusedElement(0)} />
       <NameSection focusedElement={focusedElement} handleEditClick={(e) => setFocusedElement(1)} handleUpdateClick={(e) => setFocusedElement(0)} />
       <ExperiencesSection />
     </div>

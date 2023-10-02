@@ -1,0 +1,17 @@
+.summary-bar-description {
+  margin: 0;
+  font-size: 16.7px;
+  height: 60%;
+  hyphens: auto;
+  overflow-wrap: break-word;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.neutral.summary-bar-description:hover {
+  .edit {
+    display: inline;
+  }
+}

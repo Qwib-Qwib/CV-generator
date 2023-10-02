@@ -9,22 +9,7 @@
   align-items: center;
 }
 
-.button {
-  padding: 0.2em 0.4em;
-  font-size: 0.5em;
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-
-.edit {
-  display: none;
-}
-
 .neutral.name-section:hover {
-  box-sizing: border-box;
-  border: solid 3px red;
-
   .edit {
     display: inline;
   }
@@ -33,13 +18,4 @@
 .name-section, .name-input {
   font-size: 35.2px;
   font-weight: 700;
-}
-
-.name-input {
-  width: 70%;
-  text-align: center;
-}
-
-.update {
-  right: -100%;
 }
