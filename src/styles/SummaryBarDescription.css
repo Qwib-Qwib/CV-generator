@@ -13,12 +13,11 @@
   border: solid 3px transparent;
 }
 
-.neutral.summary-bar-description:hover {
-  .edit {
-    display: inline;
-  }
-}
-
 .summary-bar-description, .description-input {
   font-size: 10px;
+}
+
+.description-input {
+  padding: 0;
+  border: 0;
 }

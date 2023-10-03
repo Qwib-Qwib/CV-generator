@@ -12,6 +12,10 @@
 
 .neutral:hover {
   border: solid 3px red;
+
+  > .edit, > .add {
+    display: inline;
+  }
 }
 
 /* The button-wrapper class is used around update buttons to tightly fit them and take their size so that the button

@@ -3,7 +3,7 @@
   font-size: 0.5em;
 }
 
-.button.edit {
+.button.edit, .button.add {
   display: none;
   position: absolute;
   top: 0;

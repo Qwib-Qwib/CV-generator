@@ -1,5 +1,4 @@
 .name-section {
-  font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   width: 65.5%;
   height: 8.2%;
@@ -10,13 +9,8 @@
   align-items: center;
 }
 
-.neutral.name-section:hover {
-  .edit {
-    display: inline;
-  }
-}
-
 .name-section, .name-input {
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 32px;
   font-weight: 700;
 }

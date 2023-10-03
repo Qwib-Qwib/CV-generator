@@ -8,16 +8,6 @@ border appears. */
   display: flex;
   align-items: center;
   justify-content: center;
-
-  .edit {
-    display: none;
-  }
-}
-
-.neutral.summary-bar-title:hover {
-  .edit {
-    display: inline;
-  }
 }
 
 .summary-bar-title, .title-input {

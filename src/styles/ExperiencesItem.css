@@ -1,0 +1,60 @@
+.experiences-item {
+  background-color: #f2d8af;
+  border: 3px solid transparent;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: left;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+
+.experiences-item:hover {
+  border-color: blue;
+
+  .experiences-item-buttons {
+    display: flex;
+  }
+}
+
+.experiences-item-date {
+  font-size: 9px;
+}
+
+.experiences-item-content {
+  padding: 0 3px;
+  display: flex;
+  flex-direction: column;
+}
+
+.experiences-item-header {
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.experiences-item-description {
+  font-size: 9px;
+
+  ul {
+    padding-left: 8px;
+  }
+
+  li {
+    padding-left: 8px;
+  }
+}
+
+.experiences-item-buttons {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  .button.edit {
+    display: inline;
+    position: static;
+  }
+
+  .button.delete {
+    position: static;
+  }
+}

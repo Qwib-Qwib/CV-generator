@@ -1,7 +1,19 @@
 .experiences-section {
   height: 80%;
-  width: 65.5%;
+  width: 63.5%;
   position: absolute;
   top: 20%;
   left: 34.5%;
+  margin-left: 6px;
+
+  * {
+    margin: 0;
+  }
+}
+
+.experiences-title {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: left;
 }

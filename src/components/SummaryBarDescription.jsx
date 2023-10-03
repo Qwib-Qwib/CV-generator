@@ -5,7 +5,7 @@ import Button from './Button';
 import Input from './Input';
 
 function SummaryBarDescription({focusedElement, handleEditClick, handleUpdateClick}) {
-  const [description, setDescription] = useState('Lorem ipsum trucmuche.')
+  const [description, setDescription] = useState('Write a short description of yourself here.')
 
   if (focusedElement === 0) {
     return (
@@ -25,7 +25,7 @@ function SummaryBarDescription({focusedElement, handleEditClick, handleUpdateCli
     )
   } else {
     return (
-      <h1 className="deactivated summary-bar-description">{description}</h1>
+      <p lang='fr' className="deactivated summary-bar-description">{description}</p>
     )
   }
 }
