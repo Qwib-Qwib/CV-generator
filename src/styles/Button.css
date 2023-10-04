@@ -10,6 +10,17 @@
   right: 0;
 }
 
+/* The button-wrapper class is used around update buttons to tightly fit them and take their size so that the button
+inside them can be offset relative to "their own size". I use it a little later to offset the button 100% to the right,
+100% being the button's own width, so that they stick to the outside of the resume and don't bother the user while
+they're editing values. */
+.button-wrapper {
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
 .button.update {
   position: relative;
   right: -100%;

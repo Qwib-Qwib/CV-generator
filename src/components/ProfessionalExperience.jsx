@@ -5,10 +5,14 @@ import Button from './Button';
 import ExperiencesItem from './ExperiencesItem';
 
 function ProfessionalExperience({focusedElement, handleEditClick, handleUpdateClick}) {
-  const [itemList, setItemList] = useState([0])
+  const [itemList, setItemList] = useState([])
 
   function handleAddingItem() {
-    setItemList(itemList.concat(parseInt(itemList.slice(-1)) + 1))
+    if (itemList.length === 0) {
+      setItemList(itemList.concat(50))
+    } else {
+      setItemList(itemList.concat(parseInt(itemList.slice(-1)) + 1))
+    }
   }
 
   function handleDeletingItems(key) {
@@ -21,9 +25,7 @@ function ProfessionalExperience({focusedElement, handleEditClick, handleUpdateCl
         <h3 className='experiences-title'>EXPÉRIENCE PROFESSIONNELLE</h3>
         <Button buttonType={'add'} handleClick={handleAddingItem} />
         {itemList.map((item) => {
-          if (item > 0) {
-            return <ExperiencesItem key={item} dataId={item} focusedElement={focusedElement} handleEditClick={handleEditClick} handleUpdateClick={handleUpdateClick} handleDeleteClick={handleDeletingItems} />
-          }
+          return <ExperiencesItem key={item} dataId={item} focusedElement={focusedElement} handleEditClick={handleEditClick} handleUpdateClick={handleUpdateClick} handleDeleteClick={handleDeletingItems} />
         })}
       </div>
     )
@@ -32,9 +34,7 @@ function ProfessionalExperience({focusedElement, handleEditClick, handleUpdateCl
       <div className='neutral professional-experience-section'>
         <h3 className='experiences-title'>EXPÉRIENCE PROFESSIONNELLE</h3>
         {itemList.map((item) => {
-          if (item > 0) {
-            return <ExperiencesItem key={item} dataId={item} focusedElement={focusedElement} handleEditClick={handleEditClick} handleUpdateClick={handleUpdateClick} handleDeleteClick={handleDeletingItems} />
-          }
+          return <ExperiencesItem key={item} dataId={item} focusedElement={focusedElement} handleEditClick={handleEditClick} handleUpdateClick={handleUpdateClick} handleDeleteClick={handleDeletingItems} />
         })}
       </div>
     )
