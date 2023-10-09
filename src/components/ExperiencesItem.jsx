@@ -20,7 +20,8 @@ function ExperiencesItem({dataId, focusedElement, handleEditClick, handleUpdateC
   const [isStartPickerOpen, setIsStartPickerOpen] = useState(false);
   const [selectedEndMonthData, setSelectedEndMonthData] = useState({
     month: date.getMonth() + 1,
-    year: date.getFullYear()
+    year: date.getFullYear(),
+    monthShortName: formatter.format(date)
   });
   const [isEndPickerOpen, setIsEndPickerOpen] = useState(false);
   const [isJobOngoing, setIsJobOngoing] = useState(false)
@@ -33,21 +34,23 @@ function ExperiencesItem({dataId, focusedElement, handleEditClick, handleUpdateC
   )
 
   useEffect(() => {
-    const monthInputs = document.querySelectorAll('._monthInputField_f6ece_1');
-    const firstInput = monthInputs[0];
-    const secondInput = monthInputs[1];
-    firstInput.innerText = selectedStartMonthData.monthShortName + ' ' + selectedStartMonthData.year;
-    secondInput.innerText = selectedEndMonthData.monthShortName + ' ' + selectedEndMonthData.year;
-  });
+    if (focusedElement === dataId) {
+      const monthInputs = document.querySelectorAll('._monthInputField_f6ece_1');
+      const firstInput = monthInputs[0];
+      const secondInput = monthInputs[1];
+      firstInput.innerText = selectedStartMonthData.monthShortName[0].toUpperCase() + selectedStartMonthData.monthShortName.slice(1) + ' ' + selectedStartMonthData.year;
+      secondInput.innerText = selectedEndMonthData.monthShortName + ' ' + selectedEndMonthData.year;
+    }
+  }, [focusedElement, dataId, selectedStartMonthData, selectedEndMonthData]);
 
   if (focusedElement === dataId) {
     return(
       <div className='experiences-item'>
         <div className='experiences-item-date'>
           <MonthInput selected={selectedStartMonthData} setShowMonthPicker={setIsStartPickerOpen} showMonthPicker={isStartPickerOpen} lang='fr' size='small' />
-          {isStartPickerOpen ? <MonthPicker setIsOpen={setIsStartPickerOpen} selected={selectedStartMonthData} onChange={setSelectedStartMonthData} lang='fr' /> : null}
+          {isStartPickerOpen ? <MonthPicker setIsOpen={setIsStartPickerOpen} selected={selectedStartMonthData} size='small' onChange={setSelectedStartMonthData} lang='fr' /> : null}
           <MonthInput selected={selectedEndMonthData} setShowMonthPicker={setIsEndPickerOpen} showMonthPicker={isEndPickerOpen} lang='fr' size='small' />
-          {isEndPickerOpen ? <MonthPicker setIsOpen={setIsEndPickerOpen} selected={selectedEndMonthData} onChange={setSelectedEndMonthData} lang='fr' /> : null}
+          {isEndPickerOpen ? <MonthPicker setIsOpen={setIsEndPickerOpen} selected={selectedEndMonthData} size='small' onChange={setSelectedEndMonthData} lang='fr' /> : null}
         </div>
         <div className='experiences-item-content'>
           <div className='experiences-item-header with-inputs'>
@@ -67,8 +70,8 @@ function ExperiencesItem({dataId, focusedElement, handleEditClick, handleUpdateC
     return(
       <div className='experiences-item'>
         <div className='experiences-item-date'>
-          <p>Sept. 2023 -</p>
-          {isJobOngoing ? <p>En cours</p> : <p>oct. 2023</p>}
+          <p>{selectedStartMonthData.monthShortName[0].toUpperCase() + selectedStartMonthData.monthShortName.slice(1) + ' ' + selectedStartMonthData.year} -</p>
+          {isJobOngoing ? <p>En cours</p> : <p>{selectedEndMonthData.monthShortName + ' ' + selectedEndMonthData.year}</p>}
         </div>
         <div className='experiences-item-content'>
           <div className='experiences-item-header'>

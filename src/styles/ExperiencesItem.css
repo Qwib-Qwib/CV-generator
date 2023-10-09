@@ -22,25 +22,18 @@
   width: 15%;
 
   ._monthInputField_f6ece_1 {
-    width: auto !important;
+    width: 100% !important;
     min-width: max-content !important;
     margin: 0 !important;
     padding: 0 !important;
     font-size: 9px !important;
+    justify-content: center;
   }
 
   svg {
     width: 12px;
     height: 12px;
   }
-}
-
-._monthInputField_f6ece_1 {
-  width: auto !important;
-  min-width: max-content !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  font-size: 9px !important;
 }
 
 .experiences-item-content {
