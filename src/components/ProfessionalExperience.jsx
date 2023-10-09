@@ -19,26 +19,15 @@ function ProfessionalExperience({focusedElement, handleEditClick, handleUpdateCl
     setItemList(itemList.filter((item) => item != key))
   }
 
-  if (focusedElement === 0) {
-    return (
-      <div className='neutral professional-experience-section'>
-        <h3 className='experiences-title'>EXPÉRIENCE PROFESSIONNELLE</h3>
-        <Button buttonType={'add'} handleClick={handleAddingItem} />
-        {itemList.map((item) => {
-          return <ExperiencesItem key={item} dataId={item} focusedElement={focusedElement} handleEditClick={handleEditClick} handleUpdateClick={handleUpdateClick} handleDeleteClick={handleDeletingItems} />
-        })}
-      </div>
-    )
-  } else {
-    return (
-      <div className='neutral professional-experience-section'>
-        <h3 className='experiences-title'>EXPÉRIENCE PROFESSIONNELLE</h3>
-        {itemList.map((item) => {
-          return <ExperiencesItem key={item} dataId={item} focusedElement={focusedElement} handleEditClick={handleEditClick} handleUpdateClick={handleUpdateClick} handleDeleteClick={handleDeletingItems} />
-        })}
-      </div>
-    )
-  }
+  return (
+    <div className='neutral professional-experience-section'>
+      <h3 className='experiences-title'>EXPÉRIENCE PROFESSIONNELLE</h3>
+      {focusedElement === 0 && <Button buttonType={'add'} handleClick={handleAddingItem} />}
+      {itemList.map((item) => {
+        return <ExperiencesItem key={item} dataId={item} focusedElement={focusedElement} handleEditClick={handleEditClick} handleUpdateClick={handleUpdateClick} handleDeleteClick={handleDeletingItems} />
+      })}
+    </div>
+  )
 }
 
 ProfessionalExperience.propTypes = {
