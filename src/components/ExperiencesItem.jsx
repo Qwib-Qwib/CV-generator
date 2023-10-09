@@ -24,7 +24,7 @@ function ExperiencesItem({dataId, focusedElement, handleEditClick, handleUpdateC
     monthShortName: formatter.format(date)
   });
   const [isEndPickerOpen, setIsEndPickerOpen] = useState(false);
-  const [isJobOngoing, setIsJobOngoing] = useState(false)
+  const [isJobOngoing, setIsJobOngoing] = useState(false);
 
   const neutralButtons = (
     <div className='experiences-item-buttons'>
@@ -33,15 +33,21 @@ function ExperiencesItem({dataId, focusedElement, handleEditClick, handleUpdateC
     </div>
   )
 
+  // Necessary to customize the behaviour of react-lite-month-picker without forking and editing the package directly.
   useEffect(() => {
     if (focusedElement === dataId) {
       const monthInputs = document.querySelectorAll('._monthInputField_f6ece_1');
       const firstInput = monthInputs[0];
-      const secondInput = monthInputs[1];
       firstInput.innerText = selectedStartMonthData.monthShortName[0].toUpperCase() + selectedStartMonthData.monthShortName.slice(1) + ' ' + selectedStartMonthData.year;
+      const secondInput = monthInputs[1];
       secondInput.innerText = selectedEndMonthData.monthShortName + ' ' + selectedEndMonthData.year;
+      secondInput.disabled = isJobOngoing;
     }
-  }, [focusedElement, dataId, selectedStartMonthData, selectedEndMonthData]);
+  }, [focusedElement, dataId, isJobOngoing, selectedStartMonthData, selectedEndMonthData]);
+
+  function handleOngoingCheckbox() {
+    setIsJobOngoing(!isJobOngoing);
+  }
 
   if (focusedElement === dataId) {
     return(
@@ -51,6 +57,10 @@ function ExperiencesItem({dataId, focusedElement, handleEditClick, handleUpdateC
           {isStartPickerOpen ? <MonthPicker setIsOpen={setIsStartPickerOpen} selected={selectedStartMonthData} size='small' onChange={setSelectedStartMonthData} lang='fr' /> : null}
           <MonthInput selected={selectedEndMonthData} setShowMonthPicker={setIsEndPickerOpen} showMonthPicker={isEndPickerOpen} lang='fr' size='small' />
           {isEndPickerOpen ? <MonthPicker setIsOpen={setIsEndPickerOpen} selected={selectedEndMonthData} size='small' onChange={setSelectedEndMonthData} lang='fr' /> : null}
+          <div className='ongoing-checkbox-wrapper'>
+            <input type="checkbox" id='ongoing' onClick={handleOngoingCheckbox} defaultChecked={isJobOngoing}/>
+            <label htmlFor="ongoing">En cours ?</label>
+          </div>
         </div>
         <div className='experiences-item-content'>
           <div className='experiences-item-header with-inputs'>
