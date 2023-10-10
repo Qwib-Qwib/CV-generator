@@ -1,14 +1,21 @@
 import '../styles/ContactBarContent.css'
+import PropTypes from 'prop-types'
 import ContactSection from './ContactSection';
 import SkillSection from './SkillSection';
 
-function ContactBarContent() {
+function ContactBarContent({focusedElement, handleEditClick, handleUpdateClick}) {
   return (
     <div className="contact-bar-content">
-      <ContactSection />
+      <ContactSection focusedElement={focusedElement} handleEditClick={handleEditClick} handleUpdateClick={handleUpdateClick} />
       <SkillSection />
     </div>
   )
 }
+
+ContactBarContent.propTypes = {
+  focusedElement: PropTypes.number,
+  handleEditClick: PropTypes.func,
+  handleUpdateClick: PropTypes.func
+};
 
 export default ContactBarContent;

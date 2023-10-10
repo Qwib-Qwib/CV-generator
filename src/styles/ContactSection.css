@@ -20,6 +20,8 @@
 }
 
 .contact-line-group {
+  position: relative;
+  border: 3px solid transparent;
   display: flex;
   align-items: center;
 }

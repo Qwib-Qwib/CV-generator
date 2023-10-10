@@ -11,11 +11,11 @@ function Resume() {
   // Editeable sections need it to determine whether they display fields or set values, and whether edition mode can be
   // activated.
   // 0 means nothing is currently being edited. Otherwise, each editeable sections is assigned a number.
-  const [focusedElement, setFocusedElement] = useState(0)
+  const [focusedElement, setFocusedElement] = useState(0);
 
   return (
     <div className="resume">
-      <ContactBar />
+      <ContactBar focusedElement={focusedElement} handleEditClick={(id) => setFocusedElement(id)} handleUpdateClick={() => setFocusedElement(0)} />
       <SummaryBar focusedElement={focusedElement} handleProfessionEditClick={() => setFocusedElement(2)} handleSummaryEditClick={() => setFocusedElement(3)} handleUpdateClick={() => setFocusedElement(0)} />
       <NameSection focusedElement={focusedElement} handleEditClick={() => setFocusedElement(1)} handleUpdateClick={() => setFocusedElement(0)} />
       <ExperiencesSection focusedElement={focusedElement} handleEditClick={(id) => setFocusedElement(id)} handleUpdateClick={() => setFocusedElement(0)} />
