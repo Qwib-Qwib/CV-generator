@@ -1,3 +1,4 @@
 .skill-section-wrapper {
+  position: relative;
   border: solid 3px transparent;
 }

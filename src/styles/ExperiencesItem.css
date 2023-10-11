@@ -8,13 +8,7 @@
   flex-direction: row;
 }
 
-.neutral.experiences-item:hover {
-  border-color: blue;
 
-  .experiences-item-buttons {
-    display: flex;
-  }
-}
 
 .experiences-item-date {
   font-size: 9px;
@@ -96,20 +90,4 @@
   text-align: left;
   padding: 0;
   border: 0;
-}
-
-.experiences-item-buttons {
-  display: none;
-  position: absolute;
-  top: 0;
-  right: 0;
-
-  .button.edit {
-    display: inline;
-    position: static;
-  }
-
-  .button.delete {
-    position: static;
-  }
 }

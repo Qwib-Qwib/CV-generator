@@ -2,16 +2,21 @@ import '../styles/SkillSection.css'
 import { useState } from 'react';
 import PropTypes from 'prop-types'
 import SkillCategory from './SkillCategory';
+import Button from './Button';
 
 function SkillSection({focusedElement, handleEditItemClick, handleUpdateClick}) {
   const[skillCategories, setSkillCategories] = useState([]);
 
   function handleAddingCategories() {
-    if (skillCategories.length() === 0) {
+    if (skillCategories.length === 0) {
       setSkillCategories(skillCategories.concat(4000))
     } else {
       setSkillCategories(skillCategories.concat(skillCategories.slice(-1) + 1000))
     }
+  }
+
+  function handleDeletingCategories(id) {
+    setSkillCategories(skillCategories.filter((category) => category != id ))
   }
 
   return (
@@ -22,9 +27,10 @@ function SkillSection({focusedElement, handleEditItemClick, handleUpdateClick}) 
       </div>
       <div className='skill-section-content'>
         {skillCategories.map((category) => {
-          return <SkillCategory key={category} />
+          return <SkillCategory key={category} id={category} handleEditItemClick={handleEditItemClick} handleUpdateClick={handleUpdateClick} handleDeleteClick={handleDeletingCategories} />
         })}
       </div>
+      {focusedElement === 0 ? <Button buttonType={'add'} handleClick={handleAddingCategories} /> : null}
     </div>
   )
 }

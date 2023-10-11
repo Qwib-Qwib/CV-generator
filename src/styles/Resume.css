@@ -16,3 +16,27 @@
     display: inline;
   }
 }
+
+.neutral.experiences-item:hover, .neutral.skill-category:hover {
+  border-color: blue;
+
+  .experiences-item-buttons, .skill-category-buttons {
+    display: flex;
+  }
+}
+
+.experiences-item-buttons, .skill-category-buttons {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  .button.edit {
+    display: inline;
+    position: static;
+  }
+
+  .button.delete {
+    position: static;
+  }
+}
