@@ -9,7 +9,7 @@
   position: relative;
 }
 
-.neutral:hover {
+.neutral:not(.experiences-item):hover {
   border: solid 3px red;
 
   > .edit, > .add {

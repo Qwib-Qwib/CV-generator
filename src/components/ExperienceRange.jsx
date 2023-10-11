@@ -5,7 +5,7 @@ import Button from './Button';
 import ExperiencesItem from './ExperiencesItem';
 
 function ExperienceRange({type, itemCountStart, focusedElement, handleEditClick, handleUpdateClick}) {
-  const [itemList, setItemList] = useState([])
+  const [itemList, setItemList] = useState([]);
 
   function handleAddingItem() {
     if (itemList.length === 0) {
@@ -20,7 +20,7 @@ function ExperienceRange({type, itemCountStart, focusedElement, handleEditClick,
   }
 
   return (
-    <div className='neutral experience-type-section'>
+    <div className={focusedElement === 0 ? 'neutral experience-type-section' : 'experience-type-section'}>
       <h3 className='experiences-title'>{type}</h3>
       {focusedElement === 0 && <Button buttonType={'add'} handleClick={handleAddingItem} />}
       {itemList.map((item) => {

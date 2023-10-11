@@ -2,10 +2,10 @@ import '../styles/ContactBar.css'
 import PropTypes from 'prop-types'
 import ContactBarContent from './ContactBarContent';
 
-function ContactBar({focusedElement, handleEditClick, handleUpdateClick}) {
+function ContactBar({focusedElement, handleEditClick, handleEditItemClick, handleUpdateClick}) {
   return (
     <div className="contact-bar">
-      <ContactBarContent focusedElement={focusedElement} handleEditClick={handleEditClick} handleUpdateClick={handleUpdateClick} />
+      <ContactBarContent focusedElement={focusedElement} handleEditClick={handleEditClick} handleEditItemClick={handleEditItemClick} handleUpdateClick={handleUpdateClick} />
     </div>
   )
 }
@@ -13,6 +13,7 @@ function ContactBar({focusedElement, handleEditClick, handleUpdateClick}) {
 ContactBar.propTypes = {
   focusedElement: PropTypes.number,
   handleEditClick: PropTypes.func,
+  handleEditItemClick: PropTypes.func,
   handleUpdateClick: PropTypes.func
 };
 

@@ -78,7 +78,7 @@ function ExperiencesItem({dataId, focusedElement, handleEditClick, handleUpdateC
     )
   } else {
     return(
-      <div className='experiences-item'>
+      <div className={focusedElement === 0 ? 'neutral experiences-item' : 'experiences-item'}>
         <div className='experiences-item-date'>
           <p>{selectedStartMonthData.monthShortName[0].toUpperCase() + selectedStartMonthData.monthShortName.slice(1) + ' ' + selectedStartMonthData.year} -</p>
           {isJobOngoing ? <p>En cours</p> : <p>{selectedEndMonthData.monthShortName + ' ' + selectedEndMonthData.year}</p>}

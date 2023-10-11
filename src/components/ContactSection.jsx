@@ -14,16 +14,16 @@ import Input from './Input'
 function ContactSection({focusedElement, handleEditClick, handleUpdateClick}) {
   const [phoneNumber, setPhoneNumber] = useState('00.00.00.00.00');
   const [email, setEmail] = useState('myemailaddress@testemail.com');
-  const [linkedin, setLinkedin] = useState('@linkedinpseudo');
-  const [github, setGithub] = useState('Githubpseudo');
+  const [linkedin, setLinkedin] = useState('linkedinpseudo');
+  const [github, setGithub] = useState('githubpseudo');
   const [portfolioLink, setPortfolioLink] = useState('#');
   const [location, setLocation] = useState('Ma région');
 
   return (
-    <div className="contact-section">
-      <div className='contact-section-title-block'>
-        <div className='contact-section-title-accent-bar'></div>
-        <span className='contact-section-title'>CONTACT</span>
+    <div className="contact-section-wrapper">
+      <div className='contact-section title-block'>
+        <div className='contact-section accent-bar'></div>
+        <span className='contact-section title'>CONTACT</span>
       </div>
       <div className='contact-section-content'>
         <div className={focusedElement === 0 ? 'neutral contact-line-group' : 'contact-line-group'}>
@@ -34,19 +34,19 @@ function ContactSection({focusedElement, handleEditClick, handleUpdateClick}) {
         </div>
         <div className={focusedElement === 0 ? 'neutral contact-line-group' : 'contact-line-group'}>
           <div className='icon-wrapper'><FontAwesomeIcon icon={faEnvelope} /></div>
-          {focusedElement === 5 ? <Input category='contact-email' value={email} handleChange={(e) => setEmail(e.target.value)} /> : <span className='contact-line'>{email}</span>}
+          {focusedElement === 5 ? <Input category='contact-email' value={email} handleChange={(e) => setEmail(e.target.value)} /> : <a href={'mailto:' + email} className='contact-line'>M&apos;envoyer un email</a>}
           <Button buttonType={'edit'} handleClick={() => handleEditClick(5)} />
           {focusedElement === 5 ? <div className='button-wrapper'><Button buttonType={'update'} handleClick={handleUpdateClick} /></div> : null}
         </div>
         <div className={focusedElement === 0 ? 'neutral contact-line-group' : 'contact-line-group'}>
           <div className='icon-wrapper'><FontAwesomeIcon icon={faLinkedin} /></div>
-          {focusedElement === 6 ? <Input category='contact-linkedin' value={linkedin} handleChange={(e) => setLinkedin(e.target.value)} /> : <span className='contact-line'>{linkedin}</span>}
+          {focusedElement === 6 ? <Input category='contact-linkedin' value={linkedin} handleChange={(e) => setLinkedin(e.target.value)} /> : <a href={'https://www.linkedin.com/in/' + linkedin + '/'} className='contact-line'>{'@' + linkedin}</a>}
           <Button buttonType={'edit'} handleClick={() => handleEditClick(6)} />
           {focusedElement === 6 ? <div className='button-wrapper'><Button buttonType={'update'} handleClick={handleUpdateClick} /></div> : null}
         </div>
         <div className={focusedElement === 0 ? 'neutral contact-line-group' : 'contact-line-group'}>
           <div className='icon-wrapper'><FontAwesomeIcon icon={faGithub} /></div>
-          {focusedElement === 7 ? <Input category='contact-github' value={github} handleChange={(e) => setGithub(e.target.value)} /> : <span className='contact-line'>{github}</span>}
+          {focusedElement === 7 ? <Input category='contact-github' value={github} handleChange={(e) => setGithub(e.target.value)} /> : <a href={'https://github.com/' + github} className='contact-line'>{'@' + github}</a>}
           <Button buttonType={'edit'} handleClick={() => handleEditClick(7)} />
           {focusedElement === 7 ? <div className='button-wrapper'><Button buttonType={'update'} handleClick={handleUpdateClick} /></div> : null}
         </div>
