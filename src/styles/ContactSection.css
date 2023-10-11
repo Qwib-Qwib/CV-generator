@@ -24,11 +24,19 @@
   border: 3px solid transparent;
   display: flex;
   align-items: center;
-}
 
-.contact-line {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 8px;
+  .contact-line, .input {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 8px;
+  }
+
+  .input {
+    width: 80%;
+    text-align: left;
+    border: 0;
+    padding: 0;
+    z-index: 2;
+  }
 }
 
 .contact-section-content {
