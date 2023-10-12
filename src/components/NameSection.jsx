@@ -4,6 +4,7 @@ import '../styles/NameSection.css'
 import Button from './Button';
 import Input from './Input';
 
+// Focus ID code for this section is 1.
 function NameSection({focusedElement, handleEditClick, handleUpdateClick}) {
   const [name, setName] = useState('John Doe');
 

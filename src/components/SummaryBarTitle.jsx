@@ -4,31 +4,17 @@ import { useState } from 'react';
 import Button from './Button';
 import Input from './Input';
 
+// Focus ID code for this section is 2.
 function SummaryBarTitle({focusedElement, handleProfessionEditClick, handleUpdateClick}) {
   const [profession, setProfession] = useState('My profession');
 
-  if (focusedElement === 0) {
-    return (
-      <h2 className="primary-neutral summary-bar-title">
-        {profession}
-        {focusedElement === 0 ? <div className='common-buttons-wrapper'><Button buttonType={'edit'} handleClick={handleProfessionEditClick} /></div> : null}
-      </h2>
-    )
-  }
-  else if (focusedElement === 2) {
-    return(
-    <div className='currently-edited summary-bar-title'>
-      <Input category={'title'} value={profession} handleChange={(e) => setProfession(e.target.value)} />
-      <div className='update-button-wrapper'>
-        <Button buttonType={'update'} handleClick={handleUpdateClick} />
-      </div>
+  return (
+    <div className={focusedElement === 0 ? 'primary-neutral summary-bar-title-wrapper' : 'summary-bar-title-wrapper'}>
+      {focusedElement === 2 ? <Input category={'title'} value={profession} handleChange={(e) => setProfession(e.target.value)} /> : <h2 className='summary-bar-title'>{profession}</h2>}
+      {focusedElement === 0 ? <div className='common-buttons-wrapper'><Button buttonType={'edit'} handleClick={handleProfessionEditClick} /></div> : null}
+      {focusedElement === 2 ? <div className='update-button-wrapper'><Button buttonType={'update'} handleClick={handleUpdateClick} /></div> : null}
     </div>
-    )
-  } else {
-    return(
-      <h2 className='deactivated summary-bar-title'>{profession}</h2>
-    )
-  }
+  )
 }
 
 SummaryBarTitle.propTypes = {
