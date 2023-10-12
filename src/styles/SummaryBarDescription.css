@@ -1,19 +1,22 @@
+.summary-bar-description-wrapper {
+  width: 100%;
+  border: solid 3px transparent;
+  position: relative;
+}
+
 /* The transparent border is there to seamlessly replace it with a red border on hover without displacing text. */
 .summary-bar-description {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
   margin: 0;
-  width: 100%;
   hyphens: auto;
   overflow-wrap: break-word;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: relative;
-  border: solid 3px transparent;
 }
 
 .summary-bar-description, .description-input {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 10px;
 }
 

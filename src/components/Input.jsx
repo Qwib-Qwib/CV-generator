@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 function Input({type = 'text', category, value, handleChange}) {
   if (type === 'textarea') {
     return(
-      <textarea className={'input ' + category + '-input'} value={value} onChange={handleChange} cols="30" rows="4"></textarea>
+      <textarea className={'input ' + category + '-input'} value={value} onChange={handleChange} cols="30" rows="5"></textarea>
     )
   } else {
     return(
