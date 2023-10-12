@@ -9,16 +9,18 @@ function SummaryBarDescription({focusedElement, handleEditClick, handleUpdateCli
 
   if (focusedElement === 0) {
     return (
-      <p lang='fr' className="neutral summary-bar-description">
-        {description}
-        <Button buttonType={'edit'} handleClick={handleEditClick} />
-      </p>
+      <div className="primary-neutral summary-bar-description">
+        <p lang='fr'>
+          {description}
+        </p>
+        {focusedElement === 0 ? <div className='common-buttons-wrapper'><Button buttonType={'edit'} handleClick={handleEditClick} /></div> : null}
+      </div>
     )
   } else if (focusedElement === 3) {
     return (
       <div className='currently-edited summary-bar-description'>
         <Input type='textarea' category={'description'} value={description} handleChange={(e) => setDescription(e.target.value)} />
-        <div className='button-wrapper'>
+        <div className='update-button-wrapper'>
           <Button buttonType={'update'} handleClick={handleUpdateClick} />
         </div>
       </div>

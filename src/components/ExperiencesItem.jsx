@@ -27,7 +27,7 @@ function ExperiencesItem({dataId, focusedElement, handleEditClick, handleUpdateC
   const [isJobOngoing, setIsJobOngoing] = useState(false);
 
   const neutralButtons = (
-    <div className='experiences-item-buttons'>
+    <div className='common-buttons-wrapper'>
       <Button buttonType={'edit'} handleClick={() => handleEditClick(dataId)} />
       <Button buttonType={'delete'} handleClick={() => handleDeleteClick(dataId)} />
     </div>
@@ -71,14 +71,14 @@ function ExperiencesItem({dataId, focusedElement, handleEditClick, handleUpdateC
             <Input type='textarea' category={'job-description'} value={jobDescription} handleChange={(e) => setJobDescription(e.target.value)} />
           </div>
         </div>
-        <div className='button-wrapper'>
+        <div className='update-button-wrapper'>
           <Button buttonType={'update'} handleClick={handleUpdateClick} />
         </div>
       </div>
     )
   } else {
     return(
-      <div className={focusedElement === 0 ? 'neutral experiences-item' : 'experiences-item'}>
+      <div className={focusedElement === 0 ? 'secondary-neutral experiences-item' : 'experiences-item'}>
         <div className='experiences-item-date'>
           <p>{selectedStartMonthData.monthShortName[0].toUpperCase() + selectedStartMonthData.monthShortName.slice(1) + ' ' + selectedStartMonthData.year} -</p>
           {isJobOngoing ? <p>En cours</p> : <p>{selectedEndMonthData.monthShortName + ' ' + selectedEndMonthData.year}</p>}

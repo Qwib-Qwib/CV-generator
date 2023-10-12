@@ -20,9 +20,9 @@ function ExperienceRange({type, itemCountStart, focusedElement, handleEditClick,
   }
 
   return (
-    <div className={focusedElement === 0 ? 'neutral experience-type-section' : 'experience-type-section'}>
+    <div className={focusedElement === 0 ? 'primary-neutral experience-type-section' : 'experience-type-section'}>
       <h3 className='experiences-title'>{type}</h3>
-      {focusedElement === 0 && <Button buttonType={'add'} handleClick={handleAddingItem} />}
+      {focusedElement === 0 && <div className='common-buttons-wrapper'><Button buttonType={'add'} handleClick={handleAddingItem} /></div>}
       {itemList.map((item) => {
         return <ExperiencesItem key={item} dataId={item} focusedElement={focusedElement} handleEditClick={handleEditClick} handleUpdateClick={handleUpdateClick} handleDeleteClick={handleDeletingItems} />
       })}

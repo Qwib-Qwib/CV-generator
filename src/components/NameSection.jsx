@@ -9,16 +9,17 @@ function NameSection({focusedElement, handleEditClick, handleUpdateClick}) {
 
   if (focusedElement === 0) {
     return (
-      <h1 className="neutral name-section">
-        {name}
-        <Button buttonType={'edit'} handleClick={handleEditClick} />
-      </h1>
+      <div className="primary-neutral name-section">
+        <h1 className='name'>{name}</h1>
+        {focusedElement === 0 ? <div className='common-buttons-wrapper'><Button buttonType={'edit'} handleClick={handleEditClick} /></div> : null}
+      </div>
+
     )
   } else if (focusedElement === 1) {
     return (
-      <div className='currently-edited name-section'>
+      <div className='name-section'>
         <Input category={'name'} value={name} handleChange={(e) => setName(e.target.value)} />
-        <div className='button-wrapper'>
+        <div className='update-button-wrapper'>
           <Button buttonType={'update'} handleClick={handleUpdateClick} />
         </div>
       </div>

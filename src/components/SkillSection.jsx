@@ -5,13 +5,13 @@ import SkillCategory from './SkillCategory';
 import Button from './Button';
 
 function SkillSection({focusedElement, handleEditItemClick, handleUpdateClick}) {
-  const[skillCategories, setSkillCategories] = useState([]);
+  const [skillCategories, setSkillCategories] = useState([]);
 
   function handleAddingCategories() {
     if (skillCategories.length === 0) {
       setSkillCategories(skillCategories.concat(4000))
     } else {
-      setSkillCategories(skillCategories.concat(skillCategories.slice(-1) + 1000))
+      setSkillCategories(skillCategories.concat(parseInt(skillCategories.slice(-1)) + 1000))
     }
   }
 
@@ -20,17 +20,17 @@ function SkillSection({focusedElement, handleEditItemClick, handleUpdateClick}) 
   }
 
   return (
-    <div className={focusedElement === 0 ? 'neutral skill-section-wrapper' : 'skill-section-wrapper'}>
+    <div className={focusedElement === 0 ? 'primary-neutral skill-section-wrapper' : 'skill-section-wrapper'}>
       <div className='skill-section title-block'>
         <div className='skill-section accent-bar'></div>
         <span className='skill-section title'>COMPÉTENCES</span>
       </div>
       <div className='skill-section-content'>
         {skillCategories.map((category) => {
-          return <SkillCategory key={category} id={category} handleEditItemClick={handleEditItemClick} handleUpdateClick={handleUpdateClick} handleDeleteClick={handleDeletingCategories} />
+          return <SkillCategory key={category} id={category} focusedElement={focusedElement} handleEditItemClick={handleEditItemClick} handleUpdateClick={handleUpdateClick} handleDeleteClick={handleDeletingCategories} />
         })}
       </div>
-      {focusedElement === 0 ? <Button buttonType={'add'} handleClick={handleAddingCategories} /> : null}
+      {focusedElement === 0 ? <div className='common-buttons-wrapper'><Button buttonType={'add'} handleClick={handleAddingCategories} /></div> : null}
     </div>
   )
 }

@@ -5,13 +5,13 @@ import Button from './Button';
 import Input from './Input';
 
 function SummaryBarTitle({focusedElement, handleProfessionEditClick, handleUpdateClick}) {
-  const [profession, setProfession] = useState('My profession')
+  const [profession, setProfession] = useState('My profession');
 
   if (focusedElement === 0) {
     return (
-      <h2 className="neutral summary-bar-title">
+      <h2 className="primary-neutral summary-bar-title">
         {profession}
-        <Button buttonType={'edit'} handleClick={handleProfessionEditClick} />
+        {focusedElement === 0 ? <div className='common-buttons-wrapper'><Button buttonType={'edit'} handleClick={handleProfessionEditClick} /></div> : null}
       </h2>
     )
   }
@@ -19,7 +19,7 @@ function SummaryBarTitle({focusedElement, handleProfessionEditClick, handleUpdat
     return(
     <div className='currently-edited summary-bar-title'>
       <Input category={'title'} value={profession} handleChange={(e) => setProfession(e.target.value)} />
-      <div className='button-wrapper'>
+      <div className='update-button-wrapper'>
         <Button buttonType={'update'} handleClick={handleUpdateClick} />
       </div>
     </div>

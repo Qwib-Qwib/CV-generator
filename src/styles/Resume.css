@@ -9,34 +9,26 @@
   position: relative;
 }
 
-.neutral:not(.experiences-item):hover {
+.primary-neutral:hover {
   border: solid 3px red;
 
-  > .edit, > .add {
-    display: inline;
-  }
-}
-
-.neutral.experiences-item:hover, .neutral.skill-category:hover {
-  border-color: blue;
-
-  .experiences-item-buttons, .skill-category-buttons {
+  > .common-buttons-wrapper {
     display: flex;
   }
 }
 
-.experiences-item-buttons, .skill-category-buttons {
-  display: none;
-  position: absolute;
-  top: 0;
-  right: 0;
+.secondary-neutral:hover {
+  border-color: blue;
 
-  .button.edit {
-    display: inline;
-    position: static;
+  > .common-buttons-wrapper {
+    display: flex;
   }
+}
 
-  .button.delete {
-    position: static;
+.tertiary-neutral:hover {
+  border-color: green;
+
+  > .common-buttons-wrapper {
+    display: flex;
   }
 }

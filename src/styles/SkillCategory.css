@@ -1,0 +1,12 @@
+.skill-category-wrapper {
+  border: 3px solid transparent;
+  position: relative;
+}
+
+.skill-category-title-wrapper {
+  position: relative;
+}
+
+.skill-category-title {
+  margin: 0;
+}
