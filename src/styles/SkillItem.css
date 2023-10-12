@@ -2,3 +2,14 @@
   border: 3px solid transparent;
   position: relative;
 }
+
+.skill-category-list-item, .skill-category-list-item-input {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 9px;
+  text-align: left;
+}
+
+.skill-category-list-item-input {
+  padding: 0;
+  border: 0;
+}
