@@ -10,7 +10,7 @@ function Resume() {
   // Only one element can be edited at a time.
   // Editeable sections need it to determine whether they display fields or set values, and whether edition mode can be
   // activated.
-  // 0 means nothing is currently being edited. Otherwise, each editeable sections is assigned a number.
+  // 0 means nothing is currently being edited. Otherwise, each editeable section is assigned a number.
   const [focusedElement, setFocusedElement] = useState(0);
 
   return (
