@@ -1,7 +1,6 @@
 /* It's imperative to make the box a flexbox and center the text, otherwise the content is displaced in edition mode. */
 .summary-bar-title-wrapper {
   border: 3px solid transparent;
-  height: 25%;
   width: 100%;
   display: flex;
   align-items: center;

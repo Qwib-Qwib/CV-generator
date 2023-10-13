@@ -3,6 +3,7 @@
 }
 
 .contact-line-group {
+  width: 100%;
   position: relative;
   border: 3px solid transparent;
   display: flex;

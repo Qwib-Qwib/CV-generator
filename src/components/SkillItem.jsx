@@ -1,11 +1,15 @@
 import '../styles/SkillItem.css'
 import { useState } from 'react'
 import PropTypes from 'prop-types'
+import useOverflowAndEdition from '../hooks/useOverflowAndEdition.js';
 import Button from './Button';
 import Input from './Input';
 
 function SkillItem({id, focusedElement, handleEditItemClick, handleUpdateClick, handleDeleteClick}) {
   const [skill, setSkill] = useState('skill');
+
+  // Custom hook used to disable the Download PDF button if resume content overflows or Edition mode is on.
+  useOverflowAndEdition(focusedElement, [skill]);
 
   return(
     <li className={focusedElement === 0 ? 'tertiary-neutral skill-category-list-item':'skill-category-list-item'}>

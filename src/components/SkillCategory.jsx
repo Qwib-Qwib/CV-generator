@@ -1,6 +1,7 @@
 import '../styles/SkillCategory.css'
 import { useState } from 'react';
 import PropTypes from 'prop-types'
+import useOverflowAndEdition from '../hooks/useOverflowAndEdition.js';
 import SkillItem from './SkillItem';
 import Button from './Button';
 import Input from './Input';
@@ -8,6 +9,9 @@ import Input from './Input';
 function SkillCategory({id, focusedElement, handleEditItemClick, handleUpdateClick, handleDeleteClick}) {
   const [categoryTitle, setCategoryTitle] = useState('Category');
   const [skillItems, setSkillItems] = useState([]);
+
+  // Custom hook used to disable the Download PDF button if resume content overflows or Edition mode is on.
+  useOverflowAndEdition(focusedElement, [categoryTitle, skillItems]);
 
   function handleAddingSkillItems() {
     if (skillItems.length === 0) {
@@ -33,7 +37,7 @@ function SkillCategory({id, focusedElement, handleEditItemClick, handleUpdateCli
         })}
       </ul>
       <div className='common-buttons-wrapper'>
-        <Button buttonType={'add'} handleClick={() => handleAddingSkillItems()} />
+        <Button buttonType={'add'} buttonText={'Ajouter compét.'} handleClick={() => handleAddingSkillItems()} />
         <Button buttonType={'edit'} handleClick={() => handleEditItemClick(id)} />
         <Button buttonType={'delete'} handleClick={() => handleDeleteClick(id)} />
       </div>

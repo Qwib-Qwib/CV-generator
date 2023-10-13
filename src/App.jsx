@@ -25,7 +25,7 @@ function App() {
 
   return (
     <>
-      <Button buttonType={'download'} handleClick={handleDownloadingPDF} />
+      <Button buttonType={'download'} buttonText={'Télécharger PDF'} handleClick={handleDownloadingPDF} />
       <div ref={printRef}><Resume /></div>
     </>
   )

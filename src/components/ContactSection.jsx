@@ -35,7 +35,7 @@ function ContactSection({focusedElement, handleEditClick, handleUpdateClick}) {
         <div className={focusedElement === 0 ? 'primary-neutral contact-line-group' : 'contact-line-group'}>
           <div className='icon-wrapper'><FontAwesomeIcon icon={faEnvelope} /></div>
           {focusedElement === 5 ? <Input category='contact-email' value={email} handleChange={(e) => setEmail(e.target.value)} /> : <a href={'mailto:' + email} className='contact-line'>M&apos;envoyer un email</a>}
-          {focusedElement === 0 ? <div className='common-buttons-wrapper'><Button buttonType={'edit'} handleClick={() => handleEditClick(5)} /></div> : null}
+          {focusedElement === 0 ? <div className='common-buttons-wrapper'><Button buttonType={'edit'} buttonText={'Modifier lien'} handleClick={() => handleEditClick(5)} /></div> : null}
           {focusedElement === 5 ? <div className='update-button-wrapper'><Button buttonType={'update'} handleClick={handleUpdateClick} /></div> : null}
         </div>
         <div className={focusedElement === 0 ? 'primary-neutral contact-line-group' : 'contact-line-group'}>
@@ -53,7 +53,7 @@ function ContactSection({focusedElement, handleEditClick, handleUpdateClick}) {
         <div className={focusedElement === 0 ? 'primary-neutral contact-line-group' : 'contact-line-group'}>
           <div className='icon-wrapper'><FontAwesomeIcon icon={faFolderOpen} /></div>
           {focusedElement === 8 ? <Input category='contact-portfolio' value={portfolioLink} handleChange={(e) => setPortfolioLink(e.target.value)} /> : <a href={portfolioLink} className='contact-line'>Portfolio</a>}
-          {focusedElement === 0 ? <div className='common-buttons-wrapper'><Button buttonType={'edit'} handleClick={() => handleEditClick(8)} /></div> : null}
+          {focusedElement === 0 ? <div className='common-buttons-wrapper'><Button buttonType={'edit'} buttonText={'Modifier lien'} handleClick={() => handleEditClick(8)} /></div> : null}
           {focusedElement === 8 ? <div className='update-button-wrapper'><Button buttonType={'update'} handleClick={handleUpdateClick} /></div> : null}
         </div>
         <div className={focusedElement === 0 ? 'primary-neutral contact-line-group' : 'contact-line-group'}>

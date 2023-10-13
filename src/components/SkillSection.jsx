@@ -1,11 +1,23 @@
 import '../styles/SkillSection.css'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types'
 import SkillCategory from './SkillCategory';
 import Button from './Button';
 
 function SkillSection({focusedElement, handleEditItemClick, handleUpdateClick}) {
   const [skillCategories, setSkillCategories] = useState([]);
+
+  // Used to check for overflowing resume content everytime a skill category is added. If inner overflow is detected,
+  // the download button is disabled.
+  useEffect(() => {
+    const resume = document.querySelector('.resume');
+    const downloadButton = document.querySelector('.download.button');
+    if (resume.scrollHeight > resume.clientHeight || resume.scrollWidth > resume.clientWidth) {
+      downloadButton.disabled = true;
+    } else {
+      downloadButton.disabled = false;
+    }
+  }, [skillCategories])
 
   function handleAddingCategories() {
     if (skillCategories.length === 0) {
@@ -30,7 +42,7 @@ function SkillSection({focusedElement, handleEditItemClick, handleUpdateClick}) 
           return <SkillCategory key={category} id={category} focusedElement={focusedElement} handleEditItemClick={handleEditItemClick} handleUpdateClick={handleUpdateClick} handleDeleteClick={handleDeletingCategories} />
         })}
       </div>
-      {focusedElement === 0 ? <div className='common-buttons-wrapper'><Button buttonType={'add'} handleClick={handleAddingCategories} /></div> : null}
+      {focusedElement === 0 ? <div className='common-buttons-wrapper'><Button buttonType={'add'} buttonText={'Ajouter catégorie'} handleClick={handleAddingCategories} /></div> : null}
     </div>
   )
 }

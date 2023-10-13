@@ -1,6 +1,6 @@
 .button {
   padding: 0.2em 0.4em;
-  font-size: 0.5em;
+  font-size: 8px;
   z-index: 1;
 }
 
@@ -25,4 +25,15 @@ user while they're editing values. */
 .button.update {
   position: relative;
   right: -100%;
+}
+
+.button.download {
+  font-size: 16px;
+  margin-bottom: 18px;
+}
+
+.button:disabled {
+  border-color: #6362625b;
+  color: #6362625b;
+  cursor: default;
 }
