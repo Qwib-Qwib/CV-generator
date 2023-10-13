@@ -2,7 +2,7 @@ import './App.css'
 import Resume from './components/Resume'
 import { useRef } from 'react'
 import html2canvas from 'html2canvas'
-import { jsPDF } from 'jspdf'
+import jsPDF from 'jspdf'
 import Button from './components/Button'
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
 
   async function handleDownloadingPDF() {
     const element = printRef.current;
-    const canvas = await html2canvas(element);
+    const canvas = await html2canvas(element, {scale: 3});
     const data = canvas.toDataURL('image/png');
 
     const pdf = new jsPDF();
