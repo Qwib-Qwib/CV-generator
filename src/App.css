@@ -5,6 +5,7 @@
 body {
   scale: 1.9;
   transform-origin: top;
+  overflow-x: hidden;
 }
 
 #root {
