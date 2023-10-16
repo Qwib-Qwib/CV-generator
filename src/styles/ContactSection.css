@@ -21,7 +21,8 @@
 
   .input {
     width: 80%;
-    text-align: left;
+    height: 12px;
+    text-align: center;
     border: 0;
     padding: 0;
     z-index: 2;
@@ -38,7 +39,6 @@
 .icon-wrapper {
   width: 20px;
   height: 20px;
-  /* margin-right: 8px; */
   display: flex;
   align-items: center;
   justify-content: center;

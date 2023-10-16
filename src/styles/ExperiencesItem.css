@@ -8,8 +8,6 @@
   flex-direction: row;
 }
 
-
-
 .experiences-item-date {
   font-size: 9px;
   padding-right: 3px;
@@ -40,6 +38,10 @@
   }
 }
 
+.experiences-item-date > p {
+  margin: 0;
+}
+
 .ongoing-checkbox-wrapper {
   margin-top: 6px;
   display: flex;
@@ -67,6 +69,7 @@
 
 .experiences-item-job-title {
   padding-left: 1px;
+  margin: 0;
 }
 
 .job-title-input, .establishment-input {
@@ -83,6 +86,7 @@
 }
 
 .experiences-item-description > p {
+  margin: 0;
   white-space: pre-wrap;
 }
 
