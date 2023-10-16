@@ -2,6 +2,11 @@
   color: #213547;
 }
 
+body {
+  scale: 1.9;
+  transform-origin: top;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
