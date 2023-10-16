@@ -16,7 +16,7 @@ function ContactSection({focusedElement, handleEditClick, handleUpdateClick}) {
   const [email, setEmail] = useState('myemailaddress@testemail.com');
   const [linkedin, setLinkedin] = useState('linkedinpseudo');
   const [github, setGithub] = useState('githubpseudo');
-  const [portfolioLink, setPortfolioLink] = useState('#');
+  const [portfolioLink, setPortfolioLink] = useState('monportfolio.fr');
   const [location, setLocation] = useState('Ma région');
 
   return (
@@ -34,25 +34,25 @@ function ContactSection({focusedElement, handleEditClick, handleUpdateClick}) {
         </div>
         <div className={focusedElement === 0 ? 'primary-neutral contact-line-group' : 'contact-line-group'}>
           <div className='icon-wrapper'><FontAwesomeIcon icon={faEnvelope} /></div>
-          {focusedElement === 5 ? <Input category='contact-email' value={email} handleChange={(e) => setEmail(e.target.value)} /> : <a href={'mailto:' + email} className='contact-line'>M&apos;envoyer un email</a>}
+          {focusedElement === 5 ? <Input category='contact-email' value={email} handleChange={(e) => setEmail(e.target.value)} /> : <span className='contact-line'>{email}</span>}
           {focusedElement === 0 ? <div className='common-buttons-wrapper'><Button buttonType={'edit'} buttonText={'Modifier lien'} handleClick={() => handleEditClick(5)} /></div> : null}
           {focusedElement === 5 ? <div className='update-button-wrapper'><Button buttonType={'update'} handleClick={handleUpdateClick} /></div> : null}
         </div>
         <div className={focusedElement === 0 ? 'primary-neutral contact-line-group' : 'contact-line-group'}>
           <div className='icon-wrapper'><FontAwesomeIcon icon={faLinkedin} /></div>
-          {focusedElement === 6 ? <Input category='contact-linkedin' value={linkedin} handleChange={(e) => setLinkedin(e.target.value)} /> : <a href={'https://www.linkedin.com/in/' + linkedin + '/'} className='contact-line'>{'@' + linkedin}</a>}
+          {focusedElement === 6 ? <Input category='contact-linkedin' value={linkedin} handleChange={(e) => setLinkedin(e.target.value)} /> : <span className='contact-line'>{'@' + linkedin}</span>}
           {focusedElement === 0 ? <div className='common-buttons-wrapper'><Button buttonType={'edit'} handleClick={() => handleEditClick(6)} /></div> : null}
           {focusedElement === 6 ? <div className='update-button-wrapper'><Button buttonType={'update'} handleClick={handleUpdateClick} /></div> : null}
         </div>
         <div className={focusedElement === 0 ? 'primary-neutral contact-line-group' : 'contact-line-group'}>
           <div className='icon-wrapper'><FontAwesomeIcon icon={faGithub} /></div>
-          {focusedElement === 7 ? <Input category='contact-github' value={github} handleChange={(e) => setGithub(e.target.value)} /> : <a href={'https://github.com/' + github} className='contact-line'>{'@' + github}</a>}
+          {focusedElement === 7 ? <Input category='contact-github' value={github} handleChange={(e) => setGithub(e.target.value)} /> : <span className='contact-line'>{'@' + github}</span>}
           {focusedElement === 0 ? <div className='common-buttons-wrapper'><Button buttonType={'edit'} handleClick={() => handleEditClick(7)} /></div> : null}
           {focusedElement === 7 ? <div className='update-button-wrapper'><Button buttonType={'update'} handleClick={handleUpdateClick} /></div> : null}
         </div>
         <div className={focusedElement === 0 ? 'primary-neutral contact-line-group' : 'contact-line-group'}>
           <div className='icon-wrapper'><FontAwesomeIcon icon={faFolderOpen} /></div>
-          {focusedElement === 8 ? <Input category='contact-portfolio' value={portfolioLink} handleChange={(e) => setPortfolioLink(e.target.value)} /> : <a href={portfolioLink} className='contact-line'>Portfolio</a>}
+          {focusedElement === 8 ? <Input category='contact-portfolio' value={portfolioLink} handleChange={(e) => setPortfolioLink(e.target.value)} /> : <span className='contact-line'>{portfolioLink}</span>}
           {focusedElement === 0 ? <div className='common-buttons-wrapper'><Button buttonType={'edit'} buttonText={'Modifier lien'} handleClick={() => handleEditClick(8)} /></div> : null}
           {focusedElement === 8 ? <div className='update-button-wrapper'><Button buttonType={'update'} handleClick={handleUpdateClick} /></div> : null}
         </div>
