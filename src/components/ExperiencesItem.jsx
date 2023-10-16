@@ -1,17 +1,17 @@
-import '../styles/ExperiencesItem.css'
-import {PropTypes} from 'prop-types'
-import { useState, useEffect } from 'react'
+import '../styles/ExperiencesItem.css';
+import {PropTypes} from 'prop-types';
+import { useState, useEffect } from 'react';
 import { MonthPicker, MonthInput } from 'react-lite-month-picker';
-import Button from './Button'
-import Input from './Input'
+import Button from './Button';
+import Input from './Input';
 
 function ExperiencesItem({dataId, focusedElement, handleEditClick, handleUpdateClick, handleDeleteClick}) {
-  const date = new Date
-  const formatter = Intl.DateTimeFormat('fr-FR', {month: 'short'})
+  const date = new Date;
+  const formatter = Intl.DateTimeFormat('fr-FR', {month: 'short'});
 
-  const [jobTitle, setJobTitle] = useState('Job title')
-  const [company, setCompany] = useState('Company')
-  const [jobDescription, setJobDescription] = useState('Example description')
+  const [jobTitle, setJobTitle] = useState('Titre de rôle ou diplôme');
+  const [company, setCompany] = useState('Entité');
+  const [jobDescription, setJobDescription] = useState("Description de l'expérience");
   const [selectedStartMonthData, setSelectedStartMonthData] = useState({
     month: date.getMonth() + 1,
     year: date.getFullYear(),
@@ -26,10 +26,49 @@ function ExperiencesItem({dataId, focusedElement, handleEditClick, handleUpdateC
   const [isEndPickerOpen, setIsEndPickerOpen] = useState(false);
   const [isJobOngoing, setIsJobOngoing] = useState(false);
 
+  const updateButton = (
+    <div className='update-button-wrapper'>
+      <Button buttonType={'update'} handleClick={handleUpdateClick} />
+    </div>
+  )
+
   const neutralButtons = (
     <div className='common-buttons-wrapper'>
       <Button buttonType={'edit'} handleClick={() => handleEditClick(dataId)} />
       <Button buttonType={'delete'} handleClick={() => handleDeleteClick(dataId)} />
+    </div>
+  )
+
+  const dateEdition = (
+    <>
+      <MonthInput selected={selectedStartMonthData} setShowMonthPicker={setIsStartPickerOpen} showMonthPicker={isStartPickerOpen} lang='fr' size='small' />
+      {isStartPickerOpen ? <MonthPicker setIsOpen={setIsStartPickerOpen} selected={selectedStartMonthData} size='small' onChange={setSelectedStartMonthData} lang='fr' /> : null}
+      <MonthInput selected={selectedEndMonthData} setShowMonthPicker={setIsEndPickerOpen} showMonthPicker={isEndPickerOpen} lang='fr' size='small' />
+      {isEndPickerOpen ? <MonthPicker setIsOpen={setIsEndPickerOpen} selected={selectedEndMonthData} size='small' onChange={setSelectedEndMonthData} lang='fr' /> : null}
+      <div className='ongoing-checkbox-wrapper'>
+        <input type="checkbox" id='ongoing' onClick={handleOngoingCheckbox} defaultChecked={isJobOngoing}/>
+        <label htmlFor="ongoing">En cours ?</label>
+      </div>
+    </>
+  )
+
+  const dateReadOnly = (
+    <>
+      <p>{selectedStartMonthData.monthShortName[0].toUpperCase() + selectedStartMonthData.monthShortName.slice(1) + ' ' + selectedStartMonthData.year} -</p>
+      {isJobOngoing ? <p>En cours</p> : <p>{selectedEndMonthData.monthShortName + ' ' + selectedEndMonthData.year}</p>}
+    </>
+  )
+
+  const headersWithInputs = (
+    <div className='experiences-item-header with-inputs'>
+      <Input category={'job-title'} value={jobTitle} handleChange={(e) => setJobTitle(e.target.value)} />
+      <Input category={'establishment'} value={company} handleChange={(e) => setCompany(e.target.value)} />
+    </div>
+  )
+
+  const headersReadOnly = (
+    <div className='experiences-item-header'>
+      <h4 className='experiences-item-job-title'>{jobTitle}<span className='experiences-item-establishment'> ({company})</span></h4>
     </div>
   )
 
@@ -49,52 +88,21 @@ function ExperiencesItem({dataId, focusedElement, handleEditClick, handleUpdateC
     setIsJobOngoing(!isJobOngoing);
   }
 
-  if (focusedElement === dataId) {
-    return(
-      <div className='experiences-item'>
-        <div className='experiences-item-date'>
-          <MonthInput selected={selectedStartMonthData} setShowMonthPicker={setIsStartPickerOpen} showMonthPicker={isStartPickerOpen} lang='fr' size='small' />
-          {isStartPickerOpen ? <MonthPicker setIsOpen={setIsStartPickerOpen} selected={selectedStartMonthData} size='small' onChange={setSelectedStartMonthData} lang='fr' /> : null}
-          <MonthInput selected={selectedEndMonthData} setShowMonthPicker={setIsEndPickerOpen} showMonthPicker={isEndPickerOpen} lang='fr' size='small' />
-          {isEndPickerOpen ? <MonthPicker setIsOpen={setIsEndPickerOpen} selected={selectedEndMonthData} size='small' onChange={setSelectedEndMonthData} lang='fr' /> : null}
-          <div className='ongoing-checkbox-wrapper'>
-            <input type="checkbox" id='ongoing' onClick={handleOngoingCheckbox} defaultChecked={isJobOngoing}/>
-            <label htmlFor="ongoing">En cours ?</label>
-          </div>
-        </div>
-        <div className='experiences-item-content'>
-          <div className='experiences-item-header with-inputs'>
-            <Input category={'job-title'} value={jobTitle} handleChange={(e) => setJobTitle(e.target.value)} />
-            <Input category={'establishment'} value={company} handleChange={(e) => setCompany(e.target.value)} />
-          </div>
-          <div className='experiences-item-description'>
-            <Input type='textarea' category={'job-description'} value={jobDescription} handleChange={(e) => setJobDescription(e.target.value)} />
-          </div>
-        </div>
-        <div className='update-button-wrapper'>
-          <Button buttonType={'update'} handleClick={handleUpdateClick} />
+  return(
+    <div className={focusedElement === 0 ? 'secondary-neutral experiences-item' : 'experiences-item'}>
+      <div className='experiences-item-date'>
+        {focusedElement === dataId ? dateEdition : dateReadOnly }
+      </div>
+      <div className='experiences-item-content'>
+        {focusedElement === dataId ? headersWithInputs : headersReadOnly}
+        <div className='experiences-item-description'>
+          {focusedElement === dataId ? <Input type='textarea' category={'job-description'} value={jobDescription} handleChange={(e) => setJobDescription(e.target.value)} /> : <p>{jobDescription}</p> }
         </div>
       </div>
-    )
-  } else {
-    return(
-      <div className={focusedElement === 0 ? 'secondary-neutral experiences-item' : 'experiences-item'}>
-        <div className='experiences-item-date'>
-          <p>{selectedStartMonthData.monthShortName[0].toUpperCase() + selectedStartMonthData.monthShortName.slice(1) + ' ' + selectedStartMonthData.year} -</p>
-          {isJobOngoing ? <p>En cours</p> : <p>{selectedEndMonthData.monthShortName + ' ' + selectedEndMonthData.year}</p>}
-        </div>
-        <div className='experiences-item-content'>
-          <div className='experiences-item-header'>
-            <h4 className='experiences-item-job-title'>{jobTitle}<span className='experiences-item-establishment'> {company}</span></h4>
-          </div>
-          <div className='experiences-item-description'>
-            <p>{jobDescription}</p>
-          </div>
-        </div>
-        {(focusedElement === 0) && neutralButtons}
-      </div>
-    )
-  }
+      {focusedElement === dataId ? updateButton : null }
+      {focusedElement === 0 ? neutralButtons : null }
+    </div>
+  )
 }
 
 ExperiencesItem.propTypes = {

@@ -6,7 +6,7 @@ import Button from './Button';
 import Input from './Input';
 
 function SkillItem({id, focusedElement, handleEditItemClick, handleUpdateClick, handleDeleteClick}) {
-  const [skill, setSkill] = useState('skill');
+  const [skill, setSkill] = useState('Compétence (i.e. "Anglais technique"');
 
   // Custom hook used to disable the Download PDF button if resume content overflows or Edition mode is on.
   useOverflowAndEdition(focusedElement, [skill]);

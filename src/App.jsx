@@ -8,9 +8,13 @@ import Button from './components/Button'
 function App() {
   const printRef = useRef();
 
+  // The function also deactivate the apllication display being scaled up (the display class) because it messes up the
+  // final result.
   async function handleDownloadingPDF() {
+    document.body.classList.remove('display');
     const element = printRef.current;
     const canvas = await html2canvas(element, {scale: 3});
+    document.body.classList.add('display');
     const data = canvas.toDataURL('image/png');
 
     const pdf = new jsPDF();

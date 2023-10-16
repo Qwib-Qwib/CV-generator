@@ -79,6 +79,10 @@
   display: inline;
 }
 
+.experiences-item-establishment {
+  font-style: italic;
+}
+
 .experiences-item-description > p, .job-description-input {
   font-family: 'DejaVu Sans', Verdana, sans-serif;
   font-size: 9px;

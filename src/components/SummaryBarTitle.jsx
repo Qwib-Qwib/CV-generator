@@ -6,7 +6,7 @@ import Input from './Input';
 
 // Focus ID code for this section is 2.
 function SummaryBarTitle({focusedElement, handleProfessionEditClick, handleUpdateClick}) {
-  const [profession, setProfession] = useState('My profession');
+  const [profession, setProfession] = useState('Ma profession');
 
   return (
     <div className={focusedElement === 0 ? 'primary-neutral summary-bar-title-wrapper' : 'summary-bar-title-wrapper'}>

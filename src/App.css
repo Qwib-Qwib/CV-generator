@@ -2,7 +2,9 @@
   color: #213547;
 }
 
-body {
+/* Scales up the app for a more pleasant user experience. Deactivated during PDF generation, otherwise it messes up
+the result. */
+body.display {
   scale: 1.9;
   transform-origin: top;
   overflow-x: hidden;

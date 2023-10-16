@@ -7,7 +7,7 @@ import Button from './Button';
 import Input from './Input';
 
 function SkillCategory({id, focusedElement, handleEditItemClick, handleUpdateClick, handleDeleteClick}) {
-  const [categoryTitle, setCategoryTitle] = useState('Category');
+  const [categoryTitle, setCategoryTitle] = useState('Catégorie (i.e. "Langues")');
   const [skillItems, setSkillItems] = useState([]);
 
   // Custom hook used to disable the Download PDF button if resume content overflows or Edition mode is on.

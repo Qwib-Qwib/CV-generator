@@ -6,7 +6,7 @@ import Input from './Input';
 
 // Focus ID code for this section is 3.
 function SummaryBarDescription({focusedElement, handleEditClick, handleUpdateClick}) {
-  const [description, setDescription] = useState('Write a short description of yourself here.');
+  const [description, setDescription] = useState('Décrivez-vous en un paragraphe ici.');
 
   return (
     <div className={focusedElement === 0 ? 'primary-neutral summary-bar-description-wrapper' : 'summary-bar-description-wrapper'}>
