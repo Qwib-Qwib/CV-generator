@@ -5,10 +5,11 @@ import { useEffect } from "react";
 function useOverflowAndEdition(focusedElement, ...dependencies) {
   useEffect(() => {
     const resume = document.querySelector('.resume');
+    const summaryTitle = document.querySelector('.summary-bar-title');
     const summaryBar = document.querySelector('.summary-bar');
     const contactBar = document.querySelector('.contact-bar');
     const downloadButton = document.querySelector('.download.button');
-    if (resume.scrollHeight > resume.clientHeight || resume.scrollWidth > resume.clientWidth || summaryBar.scrollHeight > summaryBar.clientHeight || summaryBar.scrollWidth > summaryBar.clientWidth || contactBar.scrollHeight > contactBar.clientHeight || contactBar.scrollWidth > contactBar.clientWidth || focusedElement != 0) {
+    if (resume.scrollHeight > resume.clientHeight || resume.scrollWidth > resume.clientWidth || summaryTitle.scrollHeight > summaryTitle.clientHeight || summaryBar.scrollHeight > summaryBar.clientHeight || summaryBar.scrollWidth > summaryBar.clientWidth || contactBar.scrollHeight > contactBar.clientHeight || contactBar.scrollWidth > contactBar.clientWidth || focusedElement != 0) {
       downloadButton.disabled = true;
     } else {
       downloadButton.disabled = false;

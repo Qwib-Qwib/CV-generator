@@ -4,4 +4,5 @@
   height: 11.8%;
   position: absolute;
   top: 8.2%;
+  z-index: 3;
 }

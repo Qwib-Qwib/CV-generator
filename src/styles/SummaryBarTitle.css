@@ -3,12 +3,14 @@
   border: 3px solid transparent;
   width: 100%;
   height: 25%;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .summary-bar-title {
+  max-height: 100%;
   margin: 0;
 }
 

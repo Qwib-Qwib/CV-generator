@@ -1,5 +1,5 @@
-import '../styles/SummaryBarTitle.css'
-import PropTypes from 'prop-types'
+import '../styles/SummaryBarTitle.css';
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import Button from './Button';
 import Input from './Input';

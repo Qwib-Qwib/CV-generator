@@ -2,7 +2,7 @@
   background-color: rgb(245, 243, 241);
   padding: 0.2em 0.4em;
   font-size: 8px;
-  z-index: 1;
+  z-index: 0;
 }
 
 .common-buttons-wrapper {

@@ -3,4 +3,6 @@
   color: black;
   background: #ffffff;
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
