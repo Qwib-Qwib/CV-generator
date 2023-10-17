@@ -38,6 +38,20 @@
   }
 }
 
+._yearContainer_ual9t_24 > button, ._monthsContainer_ual9t_33 > button:not(._active_ual9t_19) {
+  background-color: rgb(245, 243, 241);
+}
+
+._yearContainer_ual9t_24 > button:disabled, ._monthsContainer_ual9t_33 > button:not(._active_ual9t_19):disabled {
+  border-color: #6362625b;
+  color: #6362625b;
+  cursor: default;
+
+  svg {
+    stroke: #6362625b;
+  }
+}
+
 .experiences-item-date > p {
   margin: 0;
 }

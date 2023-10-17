@@ -8,7 +8,7 @@ import Button from './components/Button';
 function App() {
   const printRef = useRef();
 
-  // The function also deactivate the apllication display being scaled up (the display class) because it messes up the
+  // The function also deactivate the application display being scaled up (the display class) because it messes up the
   // final result.
   async function handleDownloadingPDF() {
     document.body.classList.remove('display');

@@ -1,6 +1,7 @@
 import '../styles/ExperiencesItem.css';
 import {PropTypes} from 'prop-types';
 import { useState, useEffect } from 'react';
+import useDisableDatesOutsideRange from '../hooks/useDisableDatesOutsideRange';
 import { MonthPicker, MonthInput } from 'react-lite-month-picker';
 import Button from './Button';
 import Input from './Input';
@@ -80,9 +81,12 @@ function ExperiencesItem({dataId, focusedElement, handleEditClick, handleUpdateC
       firstInput.innerText = selectedStartMonthData.monthShortName[0].toUpperCase() + selectedStartMonthData.monthShortName.slice(1) + ' ' + selectedStartMonthData.year;
       const secondInput = monthInputs[1];
       secondInput.innerText = selectedEndMonthData.monthShortName + ' ' + selectedEndMonthData.year;
-      secondInput.disabled = isJobOngoing;
+      (isStartPickerOpen || isJobOngoing) ? secondInput.disabled = true : secondInput.disabled = false;
+      isEndPickerOpen ? firstInput.disabled = true : firstInput.disabled = false;
     }
-  }, [focusedElement, dataId, isJobOngoing, selectedStartMonthData, selectedEndMonthData]);
+  }, [focusedElement, dataId, isJobOngoing, selectedStartMonthData, selectedEndMonthData, isStartPickerOpen, isEndPickerOpen]);
+
+  useDisableDatesOutsideRange(focusedElement, dataId, selectedStartMonthData, selectedEndMonthData, isStartPickerOpen, isEndPickerOpen);
 
   function handleOngoingCheckbox() {
     setIsJobOngoing(!isJobOngoing);
